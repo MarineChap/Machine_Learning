@@ -5,6 +5,14 @@ Part 2 : Support vector regression in following the course "Machine learning A-Z
     
     The dataset can be found here https://www.superdatascience.com/machine-learning/
     Subject : Compute the salary of a new employee in function of his level
+    
+    Why choose this model ? 
+    Pro : Easily adaptable, 
+          Work very well on a non-linear problem
+          Non-biased by outliers 
+          
+    Con : Compulsory to apply features calling
+          Not well know and more difficult to understand. 
       
 Created on Sat Feb 24 19:24:24 2018
 @author: marinechap
@@ -62,6 +70,11 @@ regressor_poly.fit(indep_var, dep_var)
 # SVR Regression with linear kernel
 regressor_lin = SVR(kernel = 'linear')
 regressor_lin.fit(indep_var, dep_var)
+
+"""
+SVR regression is non-biased by outliers. In our case, the last point is probably considered as an outlier. 
+ This model is not the best idea for this particular problem but can be very useful when there are lots of outliers.
+"""
 
 # Prediction and Visualizing the result
 plt.scatter(stdScal_x.inverse_transform(indep_var), stdScal_y.inverse_transform(dep_var), color = 'red')

@@ -6,6 +6,13 @@ Part 2 : Polynomial regression in following the course "Machine learning A-Z" at
     The dataset can be found here https://www.superdatascience.com/machine-learning/
     Subject : Compute the salary of a new employee in function of his level
     
+    Why choose this model ? 
+    Pro : Works on any size of dataset and is better on non-linear problems
+    Con : Needs to choose the good polynomial degree for a good bias/variance tradeoff
+        - For this, we can use the method of backpropagation elimination. We choose a high degree
+        and only interesting degrees will be kept in the model. 
+        But for this, we need (with the class OLS) a dataset more consequent (< 20 data). 
+    
 Created on Sat Feb 24 17:30:45 2018
 @author: marinechap
 """
@@ -24,7 +31,7 @@ from sklearn.preprocessing import PolynomialFeatures
 
 #Parameters 
 name_file    = 'Position_Salaries.csv'
-nb_indep_var =  2
+nb_indep_var =  4
 
 #Import dataset
 dataset   = pd.read_csv(name_file)
@@ -56,7 +63,7 @@ Lin_reg.fit(indep_var, dep_var)
 """
 
 # Definition of the polynomial degree
-pol = PolynomialFeatures(degree=4)
+pol = PolynomialFeatures(degree = 4)
 
 # Transformation of the matrix of features in polynomial matrix of features
 indep_poly = pol.fit_transform(indep_var)
@@ -76,9 +83,10 @@ plt.scatter(indep_test, dep_predict, color = 'purple')
 plt.plot(indep_var, Lin_reg.predict(indep_var)      , color = 'blue')
 plt.plot(indep_var, Lin_reg_poly.predict(indep_poly), color = 'green')
 
+
 legend1 = mpatches.Patch(color = 'red'   , label = 'Dataset')
 legend2 = mpatches.Patch(color = 'blue'  , label = 'Linear regression')
-legend3 = mpatches.Patch(color = 'green' , label = 'Polynomial regression')
+legend3 = mpatches.Patch(color = 'green' , label = 'Polynomial regression (degree = 2)')
 legend4 = mpatches.Patch(color = 'purple', label = 'Prediction')
 plt.legend(handles = [legend1, legend2, legend3, legend4])
 

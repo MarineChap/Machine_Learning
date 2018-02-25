@@ -11,6 +11,10 @@ Part 2 : Multiple linear regression in following the course "Machine learning A-
         - Homoscedasticity
         - Multivariate normality
         - Lack of multicollinearity
+        
+    Why choose this model ? 
+    Pro : Works on any size of dataset and gives informations about the relevance of features
+    Con : Needs respect the linear regression assumptions 
     
     Created on Sat Feb 24 12:14:05 2018
     @author: marinechap  
@@ -19,6 +23,7 @@ Part 2 : Multiple linear regression in following the course "Machine learning A-
 #Import libraries 
 
 import pandas as pd
+import numpy  as np
 import building_models as bm
 from sklearn.preprocessing   import LabelEncoder, OneHotEncoder
 from sklearn.model_selection import train_test_split
@@ -58,24 +63,30 @@ indep_train, indep_test, dep_train, dep_test = train_test_split(indep_var, dep_v
 """
   
 # With all independant variables
-dep_pred  = bm.multiple_regression(indep_train, indep_test, dep_train)
+regressor = bm.multiple_regression(indep_train, dep_train)
+dep_pred  = regressor.predict(indep_test)
 reg_err   = bm.error(dep_pred, dep_test)
 
 # Parameters
 sl        = 0.05
 
+# Add the constant independant variable (=1) in the dataset
+indep_train = np.append(arr = np.ones((len(indep_train),1)).astype(int), values = indep_train,axis = 1)
+indep_test  = np.append(arr = np.ones((len(indep_test ),1)).astype(int), values = indep_test, axis = 1)
+  
 # With backpropagation elimination
-dep_pred         = bm.backpropagation_elimination(indep_train, indep_test, dep_train, sl)
+regressor, index_var_opt = bm.backpropagation_elimination(indep_train, dep_train, sl)
+dep_pred = regressor.predict(indep_test[:,index_var_opt]) 
 reg_opt_back_err = bm.error(dep_pred, dep_test)
 
+
 # With forward selection
-dep_pred         = bm.forward_selection(indep_train, indep_test, dep_train, sl)
+regressor, index_var_opt = bm.forward_selection(indep_train, dep_train, sl)
+dep_pred = regressor.predict(indep_test[:,index_var_opt]) 
 reg_opt_for_err  = bm.error(dep_pred, dep_test)
+
 
 print('Error with all independant variables take in consideration:', reg_err)       
 print('Error after optimization by backpropagation elimination:',    reg_opt_back_err)
 print('Error after optimization by forward selection:',              reg_opt_for_err )
 print('We can see an improvement after optimization.')
-
-
-        
