@@ -20,16 +20,14 @@ Created on Sun Feb 25 15:57:14 2018
 
 # Import libraries 
 import pandas as pd
-import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import precision_score, confusion_matrix
 
 
-import matplotlib.pyplot  as plt
-from matplotlib.colors import ListedColormap
-
+import matplotlib.pyplot as plt
+import Display_graph as dg
 # Parameters 
 name_file    = 'Social_Network_Ads.csv'
 nb_indep_var =  4 
@@ -68,50 +66,25 @@ predict yes   a    b      and the minimal in c and b which represent false resul
 """
 
 print(confusion_matrix(dep_test, dep_pred))
-print(precision_score(dep_test, dep_pred))
+precision = precision_score(dep_test, dep_pred)
+
 
 # Visualising the Training set results
 
-X_set, y_set = indep_train, dep_train
+plt.subplot(1,2,1)
 
-X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
-                     np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
-
-plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape), 
-             alpha = 0.75, cmap = ListedColormap(('red', 'green')))
-
-plt.xlim(X1.min(), X1.max())
-plt.ylim(X2.min(), X2.max())
-
-for i, j in enumerate(np.unique(y_set)):
-    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), 
-                label = j)
+plt = dg.display_classifier(plt, classifier, indep_train, dep_train)
     
-plt.title('Logistic Regression (Training set)')
+plt.title('Training set')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
-plt.legend()
-plt.show()
 
 # Visualising the Test set results
-
-X_set, y_set = indep_test, dep_test
-
-X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
-                     np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
-
-plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape), 
-             alpha = 0.75, cmap = ListedColormap(('red', 'green')))
-
-plt.xlim(X1.min(), X1.max())
-plt.ylim(X2.min(), X2.max())
-
-for i, j in enumerate(np.unique(y_set)):
-    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), 
-                label = j)
+plt.subplot(1,2,2)
+plt = dg.display_classifier(plt, classifier, indep_test, dep_test)
     
-plt.title('Logistic Regression (Test set)')
-plt.xlabel('Age')
-plt.ylabel('Estimated Salary')
-plt.legend()
+plt.title('Test set')
+plt.xlabel('Age \n precision = %s'%(precision))
+plt.suptitle('Logistic regression', size = 'x-large')
+plt.savefig('Logistic_regression.pdf', bbox_inches='tight')
 plt.show()
