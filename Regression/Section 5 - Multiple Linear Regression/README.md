@@ -38,20 +38,20 @@ Adjusted R square is a good criterion to know if the variable is really importan
 
 #### With backpropagation elimination (with adjusted R-square)
 
-Initialization : All independent variables are used      
-Step 1 : Fit the model with all possible predictors   
-Step 2: Select the independent variable with the highest p_value   
-Step 3 : If this p_value is higher than the sl, this variable is not considered as significant   
+**Initialization** : All independent variables are used      
+**Step 1** : Fit the model with all possible predictors   
+**Step 2**: Select the independent variable with the highest p_value   
+**Step 3** : If this p_value is higher than the sl, this variable is not considered as significant   
         and can be removed of the model, unless the adjusted R square isn't improved by the removal        
         We return step 1.   
         Else we have reached our threshold.     
         
 #### With forward selection (with adjusted R-square)
 
-Initialization : Fit the model with all independent variables and choose the variable with the p-value lowest.
-Step 1 : Add the independent variable with the p-value lowest
-Step 2 : Fit the model   
-Step 3 : If the p-value maximum is below the threshold, we return step 1. Else, we have reached our threshold. 
+**Initialization** : Fit the model with all independent variables and choose the variable with the p-value lowest.  
+**Step 1** : Add the independent variable with the p-value lowest . 
+**Step 2** : Fit the model .    
+**Step 3** : If the p-value maximum is below the threshold, we return step 1. Else, we have reached our threshold.   
 
 The model is finished with only the independent variables useful. 
 
