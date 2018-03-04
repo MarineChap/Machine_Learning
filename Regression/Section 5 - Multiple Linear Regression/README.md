@@ -1,6 +1,6 @@
 # Multiple Linear Regression 
 
-4 assumptions which need to be verified before build a linear regression model : 
+4 assumptions need to be verified before build a linear regression model : 
 - Linearity
 - Homoscedasticity
 - Multivariate normality
