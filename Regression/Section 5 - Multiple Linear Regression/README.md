@@ -21,7 +21,7 @@ To avoid this trap, we need always need to **remove one** of the dummy variables
   - Marketing spends 
   - State 
 -  dependent variable : 
-  - Profit 
+    - Profit 
 
 ## Algorithms 
 
