@@ -23,7 +23,7 @@ So, before, we need to do some tests for knowing how many clusters we need to im
 /!\ Random Initialization Trap <br>
 Following how the random initialization falls, the algorithm won't give the same result or converge in the same way. <br>
 The most part of libraries take this problem in charge but we still need to be aware. <br>
-
+For fix this problem, we can use an algorithm named K-means++. It is not a perfect solution but the objective is to fit lot of time the same algorithm clustering with a random initialization and choose the best result. <br>
 Choose the right number of clusters is also a important parameter. For this, we are using the WCSS metrics for "The Elbow method". <br>
 
 ![WCSS](https://github.com/MarineChap/Machine_Learning/blob/master/Clustering/Section%2024%20-%20K-Means%20Clustering/WCSS.png)
