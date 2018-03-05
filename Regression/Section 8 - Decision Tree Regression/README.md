@@ -2,7 +2,7 @@
 
 ## Dataset used
 
-Subject : Salary in function of the position in the company
+Subject : Predict a salary in function of the position in the company
 
 - independent variable :
   - Level or position in the company (1 to 10)
@@ -18,7 +18,7 @@ We draw a tree of value where each node is a comparator between one indepedente 
 The problem is that the tree is only one random representation of the dataset. We cannot be sure to have the optimized result. 
 It is why the most used algorithm is the random forest decision tree regression. 
 
-## Libraries and class used 
+## Libraries and classes used 
 
 - sklearn.tree 
   - DecisionTreeRegressor
