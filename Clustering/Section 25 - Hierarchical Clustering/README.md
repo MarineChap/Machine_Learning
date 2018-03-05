@@ -33,17 +33,17 @@
  
 The question is **how compute** the distance between clusters ? <br>
 
- *Criterion of distance* : 
-    - Euclidian distance 
-    - Manhattan distance 
-    - Cosine (cosine) distance: A good choice when there are too many variables and some variable may not be significant. Cosine distance reduces noise by taking the shape of the variables, more than their values, into account. It tends to associate observations that have the same maximum and minimum variables, regardless of their effective value.
+*Criterion of distance* : 
+- Euclidian distance 
+- Manhattan distance 
+- Cosine (cosine) distance: A good choice when there are too many variables and some variable may not be significant. Cosine distance reduces noise by taking the shape of the variables, more than their values, into account. It tends to associate observations that have the same maximum and minimum variables, regardless of their effective value.
   
-  *Criterion of linkage* : 
-    - Closest point (Single linkage)
-    - Farest point(complete or maximum linkage)
-    - Centroid 
-    - Ward minimizes the variance (pooled within-group sum of squares) of the clusters being merged. 
-    - Average uses the average of the distances of each observation of the two sets.<br>
+*Criterion of linkage* : 
+- Closest point (Single linkage)
+- Farest point(complete or maximum linkage)
+- Centroid 
+- Ward minimizes the variance (pooled within-group sum of squares) of the clusters being merged. 
+- Average uses the average of the distances of each observation of the two sets. <br>
             Most often used 
             
  To choose the adequate number of clusters this time, we are using the dendogram graph.<br>
