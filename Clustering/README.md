@@ -1,6 +1,6 @@
 # Clustering
 
-In this part, we want to resolve a problem with various methods of regression : 
+In this part, we want to resolve a problem with various methods of clustering : 
 - K-means clustering
 - Hierarchical clustering 
 
