@@ -22,11 +22,15 @@ Created on Sun Feb 25 00:24:24 2018
 
 import pandas as pd
 import numpy  as np
+
+from sklearn.tree import DecisionTreeRegressor, export_graphviz
+from sklearn.externals.six import StringIO  
+
 import matplotlib.pyplot  as plt
 import matplotlib.patches as mpatches
-
-from sklearn.tree import DecisionTreeRegressor
-
+import pydotplus
+from IPython.display import Image, display
+  
 """
  Preprocessing data
 """
@@ -45,11 +49,22 @@ dep_var    = dataset.iloc[:,nb_indep_var].values
 regressor = DecisionTreeRegressor(criterion = 'mse', random_state= 0)
 regressor.fit(indep_var, dep_var)
 
+# Print the decision tree
+dot_data = StringIO()  
+export_graphviz(regressor, out_file=dot_data, 
+                         filled=True, rounded=True,  
+                         special_characters=True)  
+
+graph = pydotplus.graph_from_dot_data(dot_data.getvalue())  
+display(Image(graph.create_png()))
+
+
 # Predicting the result and visualizing the different regressions
 
 indep_test  = np.arange(min(indep_var), max(indep_var), 0.1)
 indep_test  = indep_test.reshape(len(indep_test), 1)
 dep_predict = regressor.predict(indep_test)
+
 
 plt.plot(indep_test, dep_predict, color = 'blue')
 plt.scatter(indep_var, dep_var               , color = 'red')
