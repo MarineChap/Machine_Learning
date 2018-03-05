@@ -11,7 +11,8 @@ Subject : Predict a salary in function of the position in the company
 
 ## Algorithm 
 
-We draw a tree of value where each node is a comparator between one indepedente variable and a value. Once this done, to predict a result, we just need to follow the tree.
+Step 1 : Draw a tree of value where each node is a comparator between one indepedente variable and a value. 
+Step 2 : Predict a result by following the tree.
 
 ![Decision tree](https://github.com/MarineChap/Machine_Learning/blob/master/Regression/Section%208%20-%20Decision%20Tree%20Regression/Decision_Tree.png)
 
