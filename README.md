@@ -23,8 +23,6 @@ Table of content : <br>
 - Artificial Neural Networks
 - Convolutional Neural Networks 
 
-
-
 Each time, the course furnished a dataset with a problem to analyze. 
 
 ## Objectives 
