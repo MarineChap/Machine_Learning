@@ -5,22 +5,21 @@
 
 In following the course of [Machine learning A-Z](https://www.udemy.com/machinelearning) at Udemy, I have worked on machine learning for data sciences. 
 
-Table of content : 
-## I. Data preprocessing
-## II. Supervised learning : the training data is labeled with the correct answers
+Table of content : <br>
+**I. Data preprocessing** <br>
+**II. Supervised learning** : the training data is labeled with the correct answers
 - Regression (finished)
-- Classification (finished)
+- Classification (finished)<br>
 
-## III. Unsupervised learning
+**III. Unsupervised learning** <br>
 - Clustering 
-- Dimension reduction 
+- Dimension reduction <br>
 
-## IV. Reinforcement learning
+**IV. Reinforcement learning**<br>
 - Upper Confidence Bound 
-- Thompson Sampling
+- Thompson Sampling <br>
 
-## V. Deep learning
-
+**V. Deep learning** <br>
 - Artificial Neural Networks
 - Convolutional Neural Networks 
 
@@ -32,10 +31,6 @@ Each time, the course furnished a dataset with a problem to analyze.
 
 - Understand and analyze different algorithms 
 - Implement them in python
-
-## Introduction 
-
-
 
 ## More 
 
