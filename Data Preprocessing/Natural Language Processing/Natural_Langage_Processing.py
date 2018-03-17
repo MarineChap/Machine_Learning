@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Part 5 : Natural processing in following the course "Machine learning A-Z" at Udemy
+Part 5 : Natural Langage Processing in following the course "Machine learning A-Z" at Udemy
 The dataset can be found here https://www.superdatascience.com/machine-learning/
     
 Objective : We want to analyze the review from a restaurant to say if it is positive or not. 
