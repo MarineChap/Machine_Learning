@@ -7,6 +7,9 @@ In following the course of [Machine learning A-Z](https://www.udemy.com/machinel
 
 Table of content : <br>
 **I. Data preprocessing** <br>
+- Classic data preprocessing
+- Natural Langage processing 
+
 **II. Supervised learning** : the training data is labeled with the correct answers
 - Regression (finished)
 - Classification (finished)<br>
@@ -15,11 +18,7 @@ Table of content : <br>
 - Clustering 
 - Dimension reduction <br>
 
-**IV. Reinforcement learning**<br>
-- Upper Confidence Bound 
-- Thompson Sampling <br>
-
-**V. Deep learning** <br>
+**IV. Deep learning** <br>
 - Artificial Neural Networks
 - Convolutional Neural Networks 
 
